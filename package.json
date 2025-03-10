@@ -1,0 +1,24 @@
+{
+    "name": "webapp_be",
+    "version": "1.0.0",
+    "description": "live coding BE per webapp di books",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "watch": "node --watch app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "books",
+        "coding",
+        "webapp",
+        "express",
+        "node"
+    ],
+    "author": "classe 139",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.21.2",
+        "mysql2": "^3.13.0"
+    }
+}
