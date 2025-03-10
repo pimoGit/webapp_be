@@ -16,6 +16,10 @@ const errorsHandler = require("./middlewares/errorsHandler");
 // importiamo il middleware di gestione errore 404
 const notFound = require("./middlewares/notFound");
 
+// importiamo il middleware di gestione path imgs
+const imagePathMiddleware = require('./middlewares/imagePath');
+
+
 
 
 
@@ -27,6 +31,10 @@ app.use(express.json());
 
 // registro il middleware di CORS
 // app.use(cors({ origin: 'http://localhost:5173' }))
+
+
+// registro il middleware di path imgs
+app.use(imagePathMiddleware);
 
 
 // definiamo la rotta home

@@ -15,8 +15,19 @@ function index(req, res) {
     connection.query(booksSql, (err, result) => {
         // se la query non va a buon fine
         if (err) return res.status(500).json({ error: 'Database query failed' });
+
+
+
+        // versione mappata del risultato
+        const books = result.map(book => {
+            return {
+                ...book,
+                image: req.imagePath + book.image
+            }
+        })
+
         // se tutto funziona
-        res.json(result);
+        res.json(books);
     });
 
 }
