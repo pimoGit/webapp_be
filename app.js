@@ -7,7 +7,7 @@ const port = process.env.PORT
 
 
 // importiamo il roputer delle pizze
-// const pizzasRouter = require('./routers/pizzas');
+const booksRouter = require('./routers/books');
 
 
 // importiamo il middleware di gestione errore server
@@ -29,17 +29,13 @@ app.use(express.json());
 // app.use(cors({ origin: 'http://localhost:5173' }))
 
 
-// registriamo il middleware di check time, a livello globale
-// app.use(checkTime);	
-// app.use("/pizzas", checkTime);
-
 // definiamo la rotta home
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send("Ciao sono la rotta Home, dell'app di recensione libri");
 })
 
-// utilizziamo la rotta delle pizze andando a definire la parte iniziale delle rotte
-// app.use("/pizzas", pizzasRouter)
+// utilizziamo la rotta dei libri andando a definire la parte iniziale delle rotte
+app.use("/api/books", booksRouter)
 
 // utilizzo middleware di gestione errore server
 app.use(errorsHandler);
