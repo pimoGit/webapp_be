@@ -16,8 +16,6 @@ function index(req, res) {
         // se la query non va a buon fine
         if (err) return res.status(500).json({ error: 'Database query failed' });
 
-
-
         // versione mappata del risultato
         const books = result.map(book => {
             return {
@@ -60,6 +58,9 @@ function show(req, res) {
 
             // aggiorniamo l'oggetto book con le review ritornate
             book.reviews = reviewResult;
+
+            // aggiungiamo il valore path img da middleware
+            book.image = req.imagePath + book.image;
 
             // ritorniamo l'oggetto completo
             res.json(book);
