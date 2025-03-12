@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT
 
 // importiamo il middleware di CORS
-// var cors = require('cors')
+var cors = require('cors')
 
 
 // importiamo il roputer delle pizze
@@ -30,7 +30,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // registro il middleware di CORS
-// app.use(cors({ origin: 'http://localhost:5173' }))
+app.use(cors({ origin: process.env.FE_APP }))
 
 
 // registro il middleware di path imgs
